@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSN | TERMINAL</title>
+    <title>LsnUTILITY | TERMINAL</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&family=JetBrains+Mono:wght@100;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -38,10 +38,9 @@
         .hero-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 3px; display: flex; align-items: center; gap: 10px; }
         .hero-tag::before { content: ''; display: block; width: 8px; height: 8px; background: var(--text-muted); border-radius: 50%; animation: blink 2s infinite; }
         
-        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; letter-spacing: -3px; line-height: 1; margin-bottom: 30px; }
+        .hero h1 { font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; letter-spacing: -3px; line-height: 1; margin-bottom: 30px; text-transform: uppercase; }
         .hero p { color: var(--text-muted); max-width: 500px; font-size: 1rem; margin-bottom: 40px; }
 
-        /* VISIBLE DOWNLOAD BUTTON */
         .download-btn {
             display: inline-block;
             background: var(--accent);
@@ -90,7 +89,7 @@
         .bento p { font-size: 0.85rem; color: var(--text-muted); }
         .bento .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--text-main); margin-bottom: 20px; display: inline-block; border-bottom: 1px solid var(--text-muted); padding-bottom: 5px; }
 
-        /* Reviews Terminal */
+        /* Logs */
         .terminal-reviews { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
         .log-entry { margin-bottom: 20px; padding-left: 15px; border-left: 1px solid var(--border); transition: 0.3s; }
         .log-entry:hover { border-left-color: var(--text-main); }
@@ -116,7 +115,7 @@
 
     <section class="hero">
         <div class="hero-tag">Active Stealth Framework</div>
-        <h1 class="animate">SILENT<br>OPERATIONS.</h1>
+        <h1 class="animate">LsnUTILITY</h1>
         <p class="animate" style="animation-delay: 0.1s;">Advanced packet manipulation and frame-perfect combat automation designed specifically for high-tier Lifesteal raiding.</p>
         
         <div class="animate" style="animation-delay: 0.2s;">
@@ -154,35 +153,35 @@
             </div>
             <div>
                 <span class="tag">COMBAT.SYS</span>
-                <h3>FistStrike 2.0</h3>
-                <p>Switches to FistStrike when off cooldown to ensure premium PvP performance and synchronized hit registration.</p>
+                <h3>Firststrike</h3>
+                <p>Switches to Firststrike when off cooldown to ensure premium PvP performance and synchronized hit registration.</p>
             </div>
             <div>
                 <span class="tag">STEALTH.SYS</span>
                 <h3>Ghost Mode</h3>
-                <p>Visual overlays (ESP, Claim Data) are hardware-level hidden from OBS, Discord, and AnyDesk. Completely screenshare proof.</p>
+                <p>Visual overlays are hardware-level hidden from OBS, Discord, and AnyDesk. Completely screenshare proof.</p>
             </div>
         </div>
     </section>
 
     <section class="container" id="logs">
-        <div class="section-title">02 // Network Logs (User Reviews)</div>
+        <div class="section-title">02 // Network Logs</div>
         <div class="terminal-reviews">
             <div class="log-entry">
                 <div class="log-meta">[TIME: 04:12] USER: ViperPVP // RANK: ELITE</div>
-                <div class="log-text">> "Health Bypass is a game changer. I know exactly when they are one-tap before they even realize it."</div>
+                <div class="log-text">> "Health Bypass is a game changer. Knowing when they are one-tap is meta."</div>
             </div>
             <div class="log-entry">
                 <div class="log-meta">[TIME: 08:45] USER: Xane_ // RANK: PLAYER</div>
-                <div class="log-text">> "SS bypass is 100%. Got pulled into a ticket and they found absolutely nothing."</div>
+                <div class="log-text">> "SS bypass is 100%. They found absolutely nothing in the screenshare."</div>
             </div>
             <div class="log-entry">
                 <div class="log-meta">[TIME: 14:22] USER: Kryptic // RANK: LEGEND</div>
-                <div class="log-text">> "CC-Finder reading power levels is broken. Never wasting TNT on a max shield again."</div>
+                <div class="log-text">> "CC-Finder reading power levels is broken. Never wasting TNT again."</div>
             </div>
             <div class="log-entry">
                 <div class="log-meta">[TIME: 21:05] USER: M0nday // RANK: HEROIC</div>
-                <div class="log-text">> "FistStrike switches are flawless. Performance is literally on another level."</div>
+                <div class="log-text">> "Firststrike switches are flawless. Performance is on another level."</div>
             </div>
         </div>
     </section>
@@ -224,17 +223,11 @@
 
         function handleDownload(event) {
             event.preventDefault(); 
-            fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`);
-            const webhookURL = "https://discord.com/api/webhooks/1474895963674906654/m09jglkPu_VeQ5fX-7oLzLHtFttHbtUJ7H76R1xvittRcGU4iHQUADJcGDtV745DwrlI";
-            fetch(webhookURL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    username: "LSN TRACKER",
-                    embeds: [{ title: "📥 DOWNLOAD LOGGED", color: 65450, description: "A user initiated the download sequence.", timestamp: new Date() }]
-                })
+            // Increment the counter API
+            fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`).finally(() => {
+                // Redirect to file after counter updates
+                window.location.href = "https://www.mediafire.com/file/c733xydneolceyt/LsUtils-1.31.2.jar/file";
             });
-            setTimeout(() => { window.location.href = "https://www.mediafire.com/file/c733xydneolceyt/LsUtils-1.31.2.jar/file"; }, 500);
         }
     </script>
 </body>
