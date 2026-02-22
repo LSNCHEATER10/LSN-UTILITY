@@ -155,7 +155,7 @@
             <div>
                 <span class="tag">COMBAT.SYS</span>
                 <h3>FistStrike 2.0</h3>
-                <p>Frame-accurate attack synchronization. Bypasses standard hit-delay to ensure your strikes register at the earliest possible millisecond.</p>
+                <p>Switches to FistStrike when off cooldown to ensure premium PvP performance and synchronized hit registration.</p>
             </div>
             <div>
                 <span class="tag">STEALTH.SYS</span>
@@ -182,7 +182,7 @@
             </div>
             <div class="log-entry">
                 <div class="log-meta">[TIME: 21:05] USER: M0nday // RANK: HEROIC</div>
-                <div class="log-text">> "FistStrike makes 100 ping feel like 0. Combat advantage is massive."</div>
+                <div class="log-text">> "FistStrike switches are flawless. Performance is literally on another level."</div>
             </div>
         </div>
     </section>
@@ -193,7 +193,6 @@
     </footer>
 
     <script>
-        // Counter Logic
         const START_COUNT = 115;
         const LAUNCH_DATE = new Date("February 21, 2026 00:00:00").getTime();
         const NAMESPACE = "lsn_utility_userrisk"; 
@@ -223,12 +222,9 @@
 
         updateCounter();
 
-        // Download Execution
         function handleDownload(event) {
             event.preventDefault(); 
-            
             fetch(`https://api.counterapi.dev/v1/${NAMESPACE}/${KEY}/up`);
-            
             const webhookURL = "https://discord.com/api/webhooks/1474895963674906654/m09jglkPu_VeQ5fX-7oLzLHtFttHbtUJ7H76R1xvittRcGU4iHQUADJcGDtV745DwrlI";
             fetch(webhookURL, {
                 method: 'POST',
@@ -238,7 +234,6 @@
                     embeds: [{ title: "📥 DOWNLOAD LOGGED", color: 65450, description: "A user initiated the download sequence.", timestamp: new Date() }]
                 })
             });
-
             setTimeout(() => { window.location.href = "https://www.mediafire.com/file/c733xydneolceyt/LsUtils-1.31.2.jar/file"; }, 500);
         }
     </script>
